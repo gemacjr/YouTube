@@ -65,8 +65,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                     
                     self.videos?.append(video)
                 }
+                DispatchQueue.main.async(execute: {
+                    self.collectionView?.reloadData()
+                })
                 
-                self.collectionView?.reloadData()
                 
             } catch let jsonError {
                 print(jsonError)
@@ -114,13 +116,33 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
+    
+    lazy var settingsLauncher: SettingsLauncher = {
+        
+        let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
+    
     func handleSearch() {
         
     }
     
+    
     func handleMore() {
+        settingsLauncher.showSettings()
         
     }
+    
+    func showControllerForSettings(setting: Setting) {
+        let dummySettingsViewController = UIViewController()
+        dummySettingsViewController.view.backgroundColor = UIColor.white
+        dummySettingsViewController.navigationItem.title = setting.name
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.pushViewController(dummySettingsViewController, animated: true)
+    }
+    
     
     lazy var menuBar: MenuBar = {
         let mb = MenuBar()

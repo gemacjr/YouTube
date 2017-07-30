@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		746D48011F2D76F40084643E /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746D48001F2D76F40084643E /* SettingsLauncher.swift */; };
+		746D48031F2D847C0084643E /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746D48021F2D847C0084643E /* SettingCell.swift */; };
+		746D48051F2D90060084643E /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746D48041F2D90060084643E /* Setting.swift */; };
 		74B094B61F2C2B4500E30A6D /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B094B51F2C2B4500E30A6D /* MenuBar.swift */; };
 		74B094BD1F2C503400E30A6D /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B094BC1F2C503400E30A6D /* Video.swift */; };
 		74B094BF1F2C55F100E30A6D /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B094BE1F2C55F100E30A6D /* Channel.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		746D48001F2D76F40084643E /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
+		746D48021F2D847C0084643E /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		746D48041F2D90060084643E /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		74B094B51F2C2B4500E30A6D /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		74B094BC1F2C503400E30A6D /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		74B094BE1F2C55F100E30A6D /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -48,6 +54,7 @@
 			children = (
 				74B094BC1F2C503400E30A6D /* Video.swift */,
 				74B094BE1F2C55F100E30A6D /* Channel.swift */,
+				746D48041F2D90060084643E /* Setting.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -96,6 +103,7 @@
 			children = (
 				74CCF69A1F2BE95F0000BA2C /* VideoCell.swift */,
 				74B094B51F2C2B4500E30A6D /* MenuBar.swift */,
+				746D48021F2D847C0084643E /* SettingCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				74CCF6861F2BB5640000BA2C /* HomeController.swift */,
+				746D48001F2D76F40084643E /* SettingsLauncher.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -180,13 +189,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				746D48051F2D90060084643E /* Setting.swift in Sources */,
 				74B094BF1F2C55F100E30A6D /* Channel.swift in Sources */,
 				74CCF6871F2BB5640000BA2C /* HomeController.swift in Sources */,
 				74B094BD1F2C503400E30A6D /* Video.swift in Sources */,
 				74CCF69B1F2BE95F0000BA2C /* VideoCell.swift in Sources */,
+				746D48011F2D76F40084643E /* SettingsLauncher.swift in Sources */,
 				74CCF6981F2BE8D80000BA2C /* Extensions.swift in Sources */,
 				74CCF6851F2BB5640000BA2C /* AppDelegate.swift in Sources */,
 				74B094B61F2C2B4500E30A6D /* MenuBar.swift in Sources */,
+				746D48031F2D847C0084643E /* SettingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
