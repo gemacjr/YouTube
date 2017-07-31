@@ -38,29 +38,26 @@ class ApiService: NSObject {
             }
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
                 
-                var videos = [Video]()
-                
-                for dictionary in json as! [[String: AnyObject]] {
+                if let unwrappedData = data {
                     
-                    let video = Video()
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+                    if let jsonDictionaries = try JSONSerialization.jsonObject(with: unwrappedData, options: .mutableContainers) as? [[String: AnyObject]] {
+                        
+                        var videos = [Video]()
+                        for dictionary in jsonDictionaries {
+                            
+                            let video = Video(dictionary: dictionary)
+                            videos.append(video)
+                        }
+                        DispatchQueue.main.async(execute: {
+                            completion(videos)
+                        })
+                        
+                    }
                     
-                    let channelDictionary = dictionary["channel"] as! [String: AnyObject]
                     
-                    let channel = Channel()
-                    channel.name = channelDictionary["name"] as? String
-                    channel.profileImageName = channelDictionary["profile_image_name"] as? String
-                    
-                    video.channel = channel
-                    
-                    videos.append(video)
                 }
-                DispatchQueue.main.async(execute: {
-                    completion(videos)
-                })
+                
                 
                 
             } catch let jsonError {
@@ -72,3 +69,27 @@ class ApiService: NSObject {
     
     
 }
+
+//let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+//
+//var videos = [Video]()
+//
+//for dictionary in json as! [[String: AnyObject]] {
+//    
+//    let video = Video()
+//    video.title = dictionary["title"] as? String
+//    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+//    
+//    let channelDictionary = dictionary["channel"] as! [String: AnyObject]
+//    
+//    let channel = Channel()
+//    channel.name = channelDictionary["name"] as? String
+//    channel.profileImageName = channelDictionary["profile_image_name"] as? String
+//    
+//    video.channel = channel
+//    
+//    videos.append(video)
+//}
+//DispatchQueue.main.async(execute: {
+//    completion(videos)
+//})
