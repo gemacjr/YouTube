@@ -39,9 +39,7 @@ class ApiService: NSObject {
             
             do {
                 
-                if let unwrappedData = data {
-                    
-                    if let jsonDictionaries = try JSONSerialization.jsonObject(with: unwrappedData, options: .mutableContainers) as? [[String: AnyObject]] {
+                if let unwrappedData = data, let jsonDictionaries = try JSONSerialization.jsonObject(with: unwrappedData, options: .mutableContainers) as? [[String: AnyObject]] {
                         
                         var videos = [Video]()
                         for dictionary in jsonDictionaries {
@@ -54,9 +52,6 @@ class ApiService: NSObject {
                         })
                         
                     }
-                    
-                    
-                }
                 
                 
                 
